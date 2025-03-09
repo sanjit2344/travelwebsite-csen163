@@ -4,395 +4,429 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco-friendly Travel Made Easy</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: rgb(204, 236, 255);
+            padding-top: 50px;
+        }
+        header.main-header {
+            background-color: rgb(174, 185, 191);
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .content-container {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        h1, h2 {
+            color: #00314d;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: rgb(174, 185, 191);
+            color: white;
+        }
+        .ai-circle {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(174, 185, 191);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .ai-circle:hover {
+            background-color: rgb(144, 155, 161);
+            cursor: pointer;
+        }
+        .search-bar {
+            display: flex;
+            max-width: 800px;
+            margin: 20px auto;
+            gap: 10px;
+        }
+        .search-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .search-btn {
+            background-color: rgb(174, 185, 191);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .search-btn:hover {
+            background-color: rgb(144, 155, 161);
+        }
+        .cards-container {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            margin-bottom: 30px;
+            transition: opacity 0.3s ease;
+        }
+        .card {
+            flex: 1;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-title {
+            text-align: center;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #00314d;
+        }
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 60px;
+            color: rgb(174, 185, 191);
+            cursor: pointer;
+            font-weight: 300;
+            z-index: 5;
+            user-select: none;
+        }
+        .nav-arrow:hover {
+            color: rgb(144, 155, 161);
+        }
+        .nav-arrow-prev {
+            left: -50px;
+        }
+        .nav-arrow-next {
+            right: -50px;
+        }
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ccc;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .indicator.active {
+            background-color: rgb(174, 185, 191);
+        }
+        /* Chat styles from your existing CSS */
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="nav-links">
-                    <a href="#">Home</a>
-                    <a href="#">My trips</a>
-                    <a href="#">Help</a>
-                    <a href="#">Discover</a>
-                </div>
-                <div class="user-actions">
-                    <button class="login-btn" id="loginBtn">Login</button>
-                    <svg class="profile-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                    </svg>
-                </div>
-            </nav>
-        </div>
+    <iframe src="navbar.html" style="position: fixed; top: 0; width: 100%; height: 50px; border: none;"></iframe>
+
+    <header class="main-header">
+        <h1>Eco-friendly Travel Made Easy</h1>
     </header>
     
-    <main>
-        <div class="container">
-            <section class="hero">
-                <h1>Eco-friendly Travel Made Easy.</h1>
-                <div class="search-bar">
-                    <input type="text" class="search-input" placeholder="Where would you like to go?">
-                    <button class="search-btn">Find Adventures</button>
-                </div>
-                <div class="chat-box">
-                    <p>Chat with our AI agent to start planning your trip!</p>
-                </div>
-            </section>
-            
-            <section class="locations">
-                <h2 class="section-title">Location</h2>
-                <div class="cards-container">
-                    <div class="card">
-                        <img src="Norway.jpeg" alt="Norway">
-                        <div class="card-title">Norway</div>
-                    </div>
-                    <div class="card">
-                        <img src="Japan.jpeg" alt="Japan">
-                        <div class="card-title">Japan</div>
-                    </div>
-                    <div class="card">
-                        <img src="Switzerland.jpeg" alt="Switzerland">
-                        <div class="card-title">Switzerland</div>
-                    </div>
-                    <div class="nav-arrow">›</div>
-                </div>
-            </section>
-            
-            <section class="experiences">
-                <h2 class="section-title">Experience</h2>
-                <div class="cards-container">
-                    <div class="card">
-                        <img src="wildlife.jpeg" alt="Wildlife">
-                        <div class="card-title">wildlife</div>
-                    </div>
-                    <div class="card">
-                        <img src="local-food.jpeg" alt="Local food">
-                        <div class="card-title">local food</div>
-                    </div>
-                    <div class="card">
-                        <img src="festival.jpg" alt="Festival">
-                        <div class="card-title">Festival</div>
-                    </div>
-                    <div class="nav-arrow">›</div>
-                </div>
-            </section>
+    <div class="container">
+        <div class="content-container">
+            <div class="search-bar">
+                <input type="text" class="search-input" placeholder="Where would you like to go?">
+                <button class="search-btn">Find Adventures</button>
+            </div>
+            <p style="text-align: center; margin: 20px 0;">Chat with our AI agent to start planning your sustainable trip!</p>
         </div>
-    </main>
-    
-    <div class="login-modal" id="loginModal">
-        <h2>Log in</h2>
-        <form class="login-form">
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button type="button">Log in</button>
-        </form>
-        <div class="login-options">
-            <a href="#">or, sign up</a>
+            
+        <div class="content-container">
+            <h2>Locations</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="Norway.jpeg" alt="Norway">
+                    <div class="card-title">Norway</div>
+                </div>
+                <div class="card">
+                    <img src="Japan.jpeg" alt="Japan">
+                    <div class="card-title">Japan</div>
+                </div>
+                <div class="card">
+                    <img src="Switzerland.jpeg" alt="Switzerland">
+                    <div class="card-title">Switzerland</div>
+                </div>
+                <div class="nav-arrow nav-arrow-next">›</div>
+                <div class="nav-arrow nav-arrow-prev">‹</div>
+            </div>
+            <div class="carousel-indicators" id="location-indicators"></div>
+        </div>
+            
+        <div class="content-container">
+            <h2>Experiences</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="wildlife.jpeg" alt="Wildlife">
+                    <div class="card-title">Wildlife</div>
+                </div>
+                <div class="card">
+                    <img src="local-food.jpeg" alt="Local food">
+                    <div class="card-title">Local Food</div>
+                </div>
+                <div class="card">
+                    <img src="festival.jpg" alt="Festival">
+                    <div class="card-title">Festival</div>
+                </div>
+                <div class="nav-arrow nav-arrow-next">›</div>
+                <div class="nav-arrow nav-arrow-prev">‹</div>
+            </div>
+            <div class="carousel-indicators" id="experience-indicators"></div>
         </div>
     </div>
     
-    <div class="ai-chat">
-        AI
-    </div>
+    <footer>
+        <p>Copyright © 2025 Your Travel Agency. All Rights Reserved.</p>
+    </footer>
+    
+    <a href="ai_page.html" class="ai-circle">AI</a>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-    const loginBtn = document.getElementById('loginBtn');
-    const loginModal = document.getElementById('loginModal');
-    const closeModalBtn = document.createElement('button');
-   
-    closeModalBtn.innerHTML = '&times;';
-    closeModalBtn.classList.add('close-modal-btn');
-    loginModal.prepend(closeModalBtn);
-   
-    loginBtn.addEventListener('click', function() {
-        loginModal.classList.toggle('show-login');
-    });
-    
-    closeModalBtn.addEventListener('click', function() {
-        loginModal.classList.remove('show-login');
-    });
-    
-    window.addEventListener('click', function(event) {
-        if (event.target === loginModal) {
-            loginModal.classList.remove('show-login');
-        }
-    });
+            const locationSets = [
+                [
+                    { image: 'Norway.jpeg', title: 'Norway', alt: 'Norway' },
+                    { image: 'Japan.jpeg', title: 'Japan', alt: 'Japan' },
+                    { image: 'Switzerland.jpeg', title: 'Switzerland', alt: 'Switzerland' }
+                ],
+                [
+                    { image: 'netherlands.jpeg', title: 'Netherlands', alt: 'Netherlands' },
+                    { image: 'Alaska.jpeg', title: 'Alaska', alt: 'Alaska' },
+                    { image: 'Korea.jpeg', title: 'Korea', alt: 'Korea' }
+                ],
+                [
+                    { image: 'Costa Rica.jpeg', title: 'Costa Rica', alt: 'Costa Rica' },
+                    { image: 'New Zealand.jpeg', title: 'New Zealand', alt: 'New Zealand' },
+                    { image: 'Iceland.jpeg', title: 'Iceland', alt: 'Iceland' }
+                ]
+            ];
 
-    const locationSets = [
-        [
-            { image: 'Norway.jpeg', title: 'Norway', alt: 'Norway' },
-            { image: 'Japan.jpeg', title: 'Japan', alt: 'Japan' },
-            { image: 'Switzerland.jpeg', title: 'Switzerland', alt: 'Switzerland' }
-        ],
-        [
-            { image: 'netherlands.jpeg', title: 'Netherlands', alt: 'Netherlands' },
-            { image: 'Alaska.jpeg', title: 'Alaska', alt: 'Alaska' },
-            { image: 'Korea.jpeg', title: 'Korea', alt: 'Korea' }
-        ],
-        [
-            { image: 'Costa Rica.jpeg', title: 'Costa Rica', alt: 'Costa Rica' },
-            { image: 'New Zealand.jpeg', title: 'New Zealand', alt: 'New Zealand' },
-            { image: 'Iceland.jpeg', title: 'Iceland', alt: 'Iceland' }
-        ]
-    ];
+            const experienceSets = [
+                [
+                    { image: 'wildlife.jpeg', title: 'Wildlife', alt: 'Wildlife' },
+                    { image: 'local-food.jpeg', title: 'Local Food', alt: 'Local food' },
+                    { image: 'festival.jpg', title: 'Festival', alt: 'Festival' }
+                ],
+                [
+                    { image: 'bonfire.jpeg', title: 'Bonfire Party', alt: 'Bonfire Party' },
+                    { image: 'Henna.jpeg', title: 'Henna Tattoo', alt: 'Henna Tattoo' },
+                    { image: 'clothes.jpeg', title: 'Traditional Clothes', alt: 'traditional clothing' }
+                ],
+                [
+                    { image: 'Hiking.jpeg', title: 'Hiking', alt: 'Hiking in mountains' },
+                    { image: 'Cooking Class.jpeg', title: 'Cooking Class', alt: 'Local cooking class' },
+                    { image: 'Meditation.jpeg', title: 'Meditation', alt: 'Meditation retreat' }
+                ]
+            ];
 
-    const experienceSets = [
-        [
-            { image: 'wildlife.jpeg', title: 'Wildlife', alt: 'Wildlife' },
-            { image: 'local-food.jpeg', title: 'Local Food', alt: 'Local food' },
-            { image: 'festival.jpg', title: 'Festival', alt: 'Festival' }
-        ],
-        [
-            { image: 'bonfire.jpeg', title: 'Bonfire Party', alt: 'Bonfire Party' },
-            { image: 'Henna.jpeg', title: 'Henna Tattoo', alt: 'Henna Tattoo' },
-            { image: 'clothes.jpeg', title: 'Traditional Clothes', alt: 'traditional clothing' }
-        ],
-        [
-            { image: 'Hiking.jpeg', title: 'Hiking', alt: 'Hiking in mountains' },
-            { image: 'Cooking Class.jpeg', title: 'Cooking Class', alt: 'Local cooking class' },
-            { image: 'Meditation.jpeg', title: 'Meditation', alt: 'Meditation retreat' }
-        ]
-    ];
-
-    const locationContainer = document.querySelector('.locations .cards-container');
-    const experienceContainer = document.querySelector('.experiences .cards-container');
-    
-    addNavigationArrows(locationContainer, '.locations');
-    addNavigationArrows(experienceContainer, '.experiences');
-    
-    const locationArrowNext = document.querySelector('.locations .nav-arrow-next');
-    const locationArrowPrev = document.querySelector('.locations .nav-arrow-prev');
-    const experienceArrowNext = document.querySelector('.experiences .nav-arrow-next');
-    const experienceArrowPrev = document.querySelector('.experiences .nav-arrow-prev');
-
-    let currentLocationSet = 0;
-    let currentExperienceSet = 0;
-
-    const locationIndicators = createIndicators(locationSets.length, '.locations');
-    const experienceIndicators = createIndicators(experienceSets.length, '.experiences');
-    
-    updateActiveIndicator(locationIndicators, 0);
-    updateActiveIndicator(experienceIndicators, 0);
-
-    locationArrowNext.addEventListener('click', function() {
-        navigateCarousel('next', locationContainer, locationSets, 'location');
-    });
-    
-    locationArrowPrev.addEventListener('click', function() {
-        navigateCarousel('prev', locationContainer, locationSets, 'location');
-    });
-
-    experienceArrowNext.addEventListener('click', function() {
-        navigateCarousel('next', experienceContainer, experienceSets, 'experience');
-    });
-    
-    experienceArrowPrev.addEventListener('click', function() {
-        navigateCarousel('prev', experienceContainer, experienceSets, 'experience');
-    });
-    
-    const allCards = document.querySelectorAll('.card');
-    allCards.forEach(card => {
-        card.addEventListener('click', function() {
-            const cardTitle = this.querySelector('.card-title').textContent;
-            alert(`You selected ${cardTitle}. This would navigate to the ${cardTitle} page.`);
-        });
-    });
-    
-    const aiChatButton = document.querySelector('.ai-chat');
-    const chatBox = document.createElement('div');
-    chatBox.classList.add('chat-container');
-    chatBox.innerHTML = `
-        <div class="chat-header">
-            <h3>Trip Planner Assistant</h3>
-            <button class="close-chat">&times;</button>
-        </div>
-        <div class="chat-messages">
-            <div class="message bot">Hello! I'm your eco-friendly travel assistant. How can I help plan your sustainable adventure?</div>
-        </div>
-        <div class="chat-input">
-            <input type="text" placeholder="Ask me anything..">
-            <button class="send-message">Send</button>
-        </div>
-    `;
-    document.body.appendChild(chatBox);
-    
-    aiChatButton.addEventListener('click', function() {
-        chatBox.classList.toggle('show-chat');
-    });
-    
-    chatBox.querySelector('.close-chat').addEventListener('click', function() {
-        chatBox.classList.remove('show-chat');
-    });
-    
-    const chatInput = chatBox.querySelector('.chat-input input');
-    const sendButton = chatBox.querySelector('.send-message');
-    const chatMessages = chatBox.querySelector('.chat-messages');
-    
-    function sendMessage() {
-        if (chatInput.value.trim() !== '') {
-         
-            const userMessageDiv = document.createElement('div');
-            userMessageDiv.classList.add('message', 'user');
-            userMessageDiv.textContent = chatInput.value;
-            chatMessages.appendChild(userMessageDiv);
+            const locationContainer = document.querySelector('.content-container:nth-of-type(2) .cards-container');
+            const experienceContainer = document.querySelector('.content-container:nth-of-type(3) .cards-container');
             
-            setTimeout(() => {
-                const botResponseDiv = document.createElement('div');
-                botResponseDiv.classList.add('message', 'bot');
+            let currentLocationSet = 0;
+            let currentExperienceSet = 0;
+
+            // Create location indicators
+            const locationIndicatorsContainer = document.getElementById('location-indicators');
+            const locationIndicators = createIndicators(locationSets.length, locationIndicatorsContainer);
+            updateActiveIndicator(locationIndicators, 0);
+
+            // Create experience indicators
+            const experienceIndicatorsContainer = document.getElementById('experience-indicators');
+            const experienceIndicators = createIndicators(experienceSets.length, experienceIndicatorsContainer);
+            updateActiveIndicator(experienceIndicators, 0);
+
+            // Location navigation
+            const locationArrowNext = locationContainer.querySelector('.nav-arrow-next');
+            const locationArrowPrev = locationContainer.querySelector('.nav-arrow-prev');
+            
+            locationArrowNext.addEventListener('click', function() {
+                navigateCarousel('next', locationContainer, locationSets, locationIndicators);
+                currentLocationSet = (currentLocationSet + 1) % locationSets.length;
+            });
+            
+            locationArrowPrev.addEventListener('click', function() {
+                navigateCarousel('prev', locationContainer, locationSets, locationIndicators);
+                currentLocationSet = (currentLocationSet - 1 + locationSets.length) % locationSets.length;
+            });
+
+            // Experience navigation
+            const experienceArrowNext = experienceContainer.querySelector('.nav-arrow-next');
+            const experienceArrowPrev = experienceContainer.querySelector('.nav-arrow-prev');
+            
+            experienceArrowNext.addEventListener('click', function() {
+                navigateCarousel('next', experienceContainer, experienceSets, experienceIndicators);
+                currentExperienceSet = (currentExperienceSet + 1) % experienceSets.length;
+            });
+            
+            experienceArrowPrev.addEventListener('click', function() {
+                navigateCarousel('prev', experienceContainer, experienceSets, experienceIndicators);
+                currentExperienceSet = (currentExperienceSet - 1 + experienceSets.length) % experienceSets.length;
+            });
+            
+            // Card click events
+            const allCards = document.querySelectorAll('.card');
+            allCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const cardTitle = this.querySelector('.card-title').textContent;
+                    alert(`You selected ${cardTitle}. This would navigate to the ${cardTitle} page.`);
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            searchBtn.addEventListener('click', function() {
+                if (searchInput.value.trim() !== '') {
+                    alert(`Searching for eco-friendly adventures in "${searchInput.value}". In a real application, this would navigate to search results.`);
+                } else {
+                    alert('Please enter a destination to search.');
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchBtn.click();
+                }
+            });
+            
+            function createIndicators(count, container) {
+                const indicators = [];
                 
-                let botResponse = "I'm looking into eco-friendly options for you. Would you like suggestions for accommodations, transportation, or activities?";
-                
-                if (chatInput.value.toLowerCase().includes('norway')) {
-                    botResponse = "Norway is a great eco-friendly destination! The country is known for its commitment to sustainability with electric ferries, amazing hiking trails, and eco-certified hotels.";
-                } else if (chatInput.value.toLowerCase().includes('budget')) {
-                    botResponse = "For budget-friendly eco travel, consider camping, staying in eco-hostels, using public transportation, and enjoying free nature activities like hiking and swimming.";
+                for (let i = 0; i < count; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.classList.add('indicator');
+                    indicator.dataset.index = i;
+                    container.appendChild(indicator);
+                    indicators.push(indicator);
+                    
+                    indicator.addEventListener('click', function() {
+                        const index = parseInt(this.dataset.index);
+                        const isLocation = container.id === 'location-indicators';
+                        const carouselContainer = isLocation ? locationContainer : experienceContainer;
+                        const dataSets = isLocation ? locationSets : experienceSets;
+                        const indicatorsArray = isLocation ? locationIndicators : experienceIndicators;
+                        
+                        transitionCarousel(carouselContainer, dataSets[index]);
+                        updateActiveIndicator(indicatorsArray, index);
+                        
+                        if (isLocation) {
+                            currentLocationSet = index;
+                        } else {
+                            currentExperienceSet = index;
+                        }
+                    });
                 }
                 
-                botResponseDiv.textContent = botResponse;
-                chatMessages.appendChild(botResponseDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }, 800);
+                return indicators;
+            }
             
-            chatInput.value = '';
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-    }
-    
-    sendButton.addEventListener('click', sendMessage);
-    chatInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
-    
- 
-    const searchInput = document.querySelector('.search-input');
-    const searchBtn = document.querySelector('.search-btn');
-    
-    searchBtn.addEventListener('click', function() {
-        if (searchInput.value.trim() !== '') {
-            alert(`Searching for eco-friendly adventures in "${searchInput.value}". In a real application, this would navigate to search results.`);
-        } else {
-            alert('Please enter a destination to search.');
-        }
-    });
-    
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            searchBtn.click();
-        }
-    });
-    
-    function addNavigationArrows(container, sectionClass) {
-    
-        const existingArrow = container.querySelector('.nav-arrow');
-        if (existingArrow) {
-            existingArrow.remove();
-        }
-        
-        const nextArrow = document.createElement('div');
-        nextArrow.classList.add('nav-arrow', 'nav-arrow-next');
-        nextArrow.innerHTML = '›';
-        container.appendChild(nextArrow);
-        
-        const prevArrow = document.createElement('div');
-        prevArrow.classList.add('nav-arrow', 'nav-arrow-prev');
-        prevArrow.innerHTML = '‹';
-        container.appendChild(prevArrow);
-    }
-    
-    function createIndicators(count, sectionClass) {
-        const indicatorsContainer = document.createElement('div');
-        indicatorsContainer.classList.add('carousel-indicators');
-        
-        for (let i = 0; i < count; i++) {
-            const indicator = document.createElement('div');
-            indicator.classList.add('indicator');
-            indicator.dataset.index = i;
-            indicatorsContainer.appendChild(indicator);
-        }
-        
-        document.querySelector(sectionClass).appendChild(indicatorsContainer);
-        
-        const indicators = indicatorsContainer.querySelectorAll('.indicator');
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', function() {
-                const container = document.querySelector(`${sectionClass} .cards-container`);
-                const dataSets = sectionClass === '.locations' ? locationSets : experienceSets;
-                const carouselType = sectionClass === '.locations' ? 'location' : 'experience';
+            function updateActiveIndicator(indicators, activeIndex) {
+                indicators.forEach((indicator, index) => {
+                    if (index === activeIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            function navigateCarousel(direction, container, dataSets, indicators) {
+                let newIndex;
                 
-                transitionCarousel(container, dataSets[index], index, indicators, carouselType);
-            });
-        });
-        
-        return indicators;
-    }
-    
-    function updateActiveIndicator(indicators, activeIndex) {
-        indicators.forEach((indicator, index) => {
-            if (index === activeIndex) {
-                indicator.classList.add('active');
-            } else {
-                indicator.classList.remove('active');
+                if (container === locationContainer) {
+                    newIndex = direction === 'next' ? 
+                        (currentLocationSet + 1) % dataSets.length : 
+                        (currentLocationSet - 1 + dataSets.length) % dataSets.length;
+                    currentLocationSet = newIndex;
+                } else {
+                    newIndex = direction === 'next' ? 
+                        (currentExperienceSet + 1) % dataSets.length : 
+                        (currentExperienceSet - 1 + dataSets.length) % dataSets.length;
+                    currentExperienceSet = newIndex;
+                }
+                
+                transitionCarousel(container, dataSets[newIndex]);
+                updateActiveIndicator(indicators, newIndex);
             }
-        });
-    }
-    
-    function navigateCarousel(direction, container, dataSets, type) {
-        let currentIndex;
-        let indicators;
-        
-        if (type === 'location') {
-            currentLocationSet = direction === 'next' ? 
-                (currentLocationSet + 1) % locationSets.length : 
-                (currentLocationSet - 1 + locationSets.length) % locationSets.length;
-            currentIndex = currentLocationSet;
-            indicators = locationIndicators;
-        } else {
-            currentExperienceSet = direction === 'next' ? 
-                (currentExperienceSet + 1) % experienceSets.length : 
-                (currentExperienceSet - 1 + experienceSets.length) % experienceSets.length;
-            currentIndex = currentExperienceSet;
-            indicators = experienceIndicators;
-        }
-        
-        transitionCarousel(container, dataSets[currentIndex], currentIndex, indicators, type);
-    }
-    
-    function transitionCarousel(container, dataSet, index, indicators, type) {
-        container.style.opacity = '0';
-        
-        setTimeout(() => {
-            updateCarousel(container, dataSet);
-            container.style.opacity = '1';
-            updateActiveIndicator(indicators, index);
             
-            if (type === 'location') {
-                currentLocationSet = index;
-            } else {
-                currentExperienceSet = index;
+            function transitionCarousel(container, dataSet) {
+                container.style.opacity = '0';
+                
+                setTimeout(() => {
+                    updateCarousel(container, dataSet);
+                    container.style.opacity = '1';
+                }, 300);
             }
-        }, 300);
-    }
 
-    function updateCarousel(container, items) {
-        const cards = container.querySelectorAll('.card');
-        
-        cards.forEach((card, index) => {
-            if (index < items.length) {
-                const img = card.querySelector('img');
-                const title = card.querySelector('.card-title');
+            function updateCarousel(container, items) {
+                const cards = container.querySelectorAll('.card');
                 
-                img.src = items[index].image;
-                img.alt = items[index].alt;
-                title.textContent = items[index].title;
+                cards.forEach((card, index) => {
+                    if (index < items.length) {
+                        const img = card.querySelector('img');
+                        const title = card.querySelector('.card-title');
+                        
+                        img.src = items[index].image;
+                        img.alt = items[index].alt;
+                        title.textContent = items[index].title;
+                    }
+                });
             }
         });
-    }
-});
     </script>
 </body>
 </html>
