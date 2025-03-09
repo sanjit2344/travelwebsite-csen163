@@ -165,7 +165,7 @@
         .indicator.active {
             background-color: rgb(174, 185, 191);
         }
-        /* Chat styles from your existing CSS */
+        
     </style>
 </head>
 <body>
@@ -278,17 +278,14 @@
             let currentLocationSet = 0;
             let currentExperienceSet = 0;
 
-            // Create location indicators
             const locationIndicatorsContainer = document.getElementById('location-indicators');
             const locationIndicators = createIndicators(locationSets.length, locationIndicatorsContainer);
             updateActiveIndicator(locationIndicators, 0);
 
-            // Create experience indicators
             const experienceIndicatorsContainer = document.getElementById('experience-indicators');
             const experienceIndicators = createIndicators(experienceSets.length, experienceIndicatorsContainer);
             updateActiveIndicator(experienceIndicators, 0);
 
-            // Location navigation
             const locationArrowNext = locationContainer.querySelector('.nav-arrow-next');
             const locationArrowPrev = locationContainer.querySelector('.nav-arrow-prev');
             
@@ -302,7 +299,6 @@
                 currentLocationSet = (currentLocationSet - 1 + locationSets.length) % locationSets.length;
             });
 
-            // Experience navigation
             const experienceArrowNext = experienceContainer.querySelector('.nav-arrow-next');
             const experienceArrowPrev = experienceContainer.querySelector('.nav-arrow-prev');
             
@@ -316,7 +312,6 @@
                 currentExperienceSet = (currentExperienceSet - 1 + experienceSets.length) % experienceSets.length;
             });
             
-            // Card click events
             const allCards = document.querySelectorAll('.card');
             allCards.forEach(card => {
                 card.addEventListener('click', function() {
@@ -324,8 +319,7 @@
                     alert(`You selected ${cardTitle}. This would navigate to the ${cardTitle} page.`);
                 });
             });
-            
-            // Search functionality
+
             const searchInput = document.querySelector('.search-input');
             const searchBtn = document.querySelector('.search-btn');
             
