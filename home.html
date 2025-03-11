@@ -220,6 +220,8 @@
         <a href="mytrips.html">My Trips</a>
         <a href="help.html">Help</a>
         <a href="discover.html">Discover</a>
+        <a href="translator.html">Translator</a>
+        <a href="0planning.html">0planning</a>
     </nav>
 
     <header class="main-header">
@@ -282,7 +284,7 @@
         <p>Copyright © 2025 Your Travel Agency. All Rights Reserved.</p>
     </footer>
     
-    <a href="ai_page.html" class="ai-circle">AI</a>
+    <a href="aipage.html" class="ai-circle">AI</a>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -472,6 +474,13 @@
                 });
             }
         });
+        window.onload = function() {
+            var newTourMessage = sessionStorage.getItem('newTour');
+            if(newTourMessage) {
+                alert('Welcome to explore more tours');
+                sessionStorage.removeItem('newTour');
+            }
+        };
     </script>
 </body>
 </html>

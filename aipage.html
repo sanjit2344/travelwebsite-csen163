@@ -15,23 +15,10 @@
             font-family: 'Roboto', sans-serif;
             background: rgb(204, 236, 255);
         }
-        .navbar {
-            display: flex;
-            justify-content: space-around;
-            background: white;
-            padding: 15px;
-            border-bottom: 2px solid #ddd;
-            font-weight: bold;
-        }
-        .navbar span {
-            cursor: pointer;
-        }
-        .navbar span:last-child {
-            color: #5a8ea2;
-        }
         .container {
-            max-width: 600px;
-            margin: 60px auto 20px auto; /* Push below navbar */
+            max-width: 1000px;
+            height: 700px;
+            margin: 100px auto 20px auto;
             background: white;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -42,7 +29,7 @@
         .chat-area {
             padding: 20px;
             background-color: rgb(240, 244, 248);
-            height: 400px;
+            height: 700px;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
@@ -107,16 +94,64 @@
         .send-btn:hover {
             background: rgb(6, 66, 98);
         }
+        .navTop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px; /* Height of the iframe for the navbar */
+            border: none;
+            z-index: 1000;
+            background-color: rgb(174, 185, 191); 
+            color: white;
+            padding:25px 0px;
+            text-align: center;
+        }
+        .navTop a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-family: Arial, sans-serif;
+        }
+        .navTop :hover{
+            color: #333;
+        }
+        .ai-circle {
+            position: fixed;
+            right: 40px;
+            bottom: 40px;
+            width: 60px;
+            height: 60px;
+            background-color: rgb(0, 105, 161);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+        .ai-circle:hover {
+            background-color: rgb(6, 66, 98);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
-    <div class="navbar">
-        <span>Home</span>
-        <span>My trips</span>
-        <span>Help</span>
-        <span>Discover</span>
-    </div>
+    <nav class="navTop">
+        <a href="home.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="mytrips.html">My Trips</a>
+        <a href="help.html">Help</a>
+        <a href="discover.html">Discover</a>
+        <a href="translator.html">Translator</a>
+        <a href="0planning.html">0planning</a>
+    </nav>
 
     <div class="container">
         <div class="chat-area" id="chat-area">
@@ -130,50 +165,82 @@
     </div>
 
     <script>
-        function sendMessage() {
-            let inputField = document.getElementById("user-input");
+        window.onload = function() {
             let chatArea = document.getElementById("chat-area");
-            let userText = inputField.value.trim();
-
-            if (userText === "") return;
-
-            // Append User Message
-            let userMessage = document.createElement("div");
-            userMessage.classList.add("message", "user-message");
-            userMessage.innerHTML = `<div class="bubble">${userText}</div>`;
-            chatArea.appendChild(userMessage);
-
-            // Clear Input
-            inputField.value = "";
-
-            // Simulate AI response
-            if (userText.toLowerCase() === "make me a travel plan to japan, my budget is $3000") {
-                setTimeout(() => {
-                    let aiMessage = document.createElement("div");
-                    aiMessage.classList.add("message", "ai-message");
-                    aiMessage.innerHTML = `
-                        <div class="bot-icon">AI</div>
-                        <div class="bubble">
-                            <p>You can choose from these travel methods and tell me, I will create a detailed plan for you.</p>
-                            <p><strong>1. Most Sustainable Travel Plan</strong><br><strong>Total Budget: $2,800</strong></p>
-                            <ul>
-                                <li><strong>Transportation:</strong> Purchase a Japan Rail (JR) Pass for $280 (7-day pass) for unlimited travel.</li>
-                                <li><strong>Accommodations:</strong> Stay in eco-friendly hostels or guesthouses (~$50 per night, $250 total).</li>
-                                <li><strong>Food:</strong> Eat at organic restaurants (~$40/day, $200 total).</li>
-                                <li><strong>Activities:</strong>
-                                    <ul>
-                                        <li>Visit national parks like Nikko or Fuji-Hakone-Izu for an eco-friendly experience.</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    `;
-                    chatArea.appendChild(aiMessage);
-                    chatArea.scrollTop = chatArea.scrollHeight; // Auto-scroll
-                }, 1000);
+    
+            // Append AI Initial Message
+            let aiInitialMessage = document.createElement("div");
+            aiInitialMessage.classList.add("message", "ai-message");
+            aiInitialMessage.innerHTML = `
+                <div class="bot-icon">AI</div>
+                <div class="bubble">
+                    Hi, this is your AI assistant. How can I help you today?
+                </div>
+            `;
+            chatArea.appendChild(aiInitialMessage);
+    
+            // Function to send messages
+            function sendMessage() {
+                let inputField = document.getElementById("user-input");
+                let userText = inputField.value.trim();
+    
+                if (userText === "") return;
+    
+                // Append User Message
+                let userMessage = document.createElement("div");
+                userMessage.classList.add("message", "user-message");
+                userMessage.innerHTML = `<div class="bubble">${userText}</div>`;
+                chatArea.appendChild(userMessage);
+    
+                // Clear Input
+                inputField.value = "";
+    
+                // Simulate AI response based on user input
+                if (userText.toLowerCase() === "make me a travel plan to japan, my budget is $3000") {
+                    setTimeout(() => {
+                        let aiMessage = document.createElement("div");
+                        aiMessage.classList.add("message", "ai-message");
+                        aiMessage.innerHTML = `
+                            <div class="bot-icon">AI</div>
+                            <div class="bubble">
+                                <p>Here's an extensively detailed sustainable travel plan tailored to ensure your journey through Japan is as enriching as it is responsible:</p>
+                                <p><strong>1. Most Sustainable Travel Plan</strong><br><strong>Total Budget: $2,800</strong></p>
+                                <ul>
+                                    <li><strong>Transportation:</strong> Begin your journey with the purchase of a Japan Rail (JR) Pass for $280 (7-day pass) offering unlimited travel across Japan's extensive railway network. For intra-city travel, opt for rental bicycles available in major cities like Tokyo, Kyoto, and Osaka, providing a low-carbon footprint mode of transport. Additionally, consider walking tours which not only reduce emissions but also allow you to soak in the local ambiance at a leisurely pace.</li>
+                                    <li><strong>Accommodations:</strong> Stay at eco-certified hotels and guesthouses, such as the Eco Hotel Chain, which utilizes advanced environmental technologies including solar energy, rainwater harvesting, and energy-efficient lighting. Each room is furnished with materials sourced from sustainable forestry practices. These accommodations are strategically located near public transport hubs to minimize your local travel emissions.</li>
+                                    <li><strong>Food:</strong> Dine at establishments serving organic and locally sourced ingredients to support sustainable agriculture in Japan. Participate in cooking classes offered by local chefs who specialize in preparing meals using traditional methods that minimize energy use. Visit vegan and vegetarian restaurants that emphasize farm-to-table dining experiences, highlighting Japan's seasonal and regional produce.</li>
+                                    <li><strong>Activities:</strong>
+                                        <ul>
+                                            <li>Explore the lush landscapes of Japan’s national parks such as Shiretoko National Park, a UNESCO World Heritage site known for its efforts in maintaining biodiversity. Engage in guided nature walks led by local experts who provide insights into the flora and fauna while promoting conservation education.</li>
+                                            <li>Join eco-friendly workshops in rural villages where you can learn about sustainable farming practices and traditional arts such as pottery and indigo dyeing, which use natural materials and methods passed down through generations.</li>
+                                            <li>Visit renewable energy installations across the country, including wind farms and geothermal plants, to learn about Japan's strategies in combating climate change and reducing reliance on fossil fuels.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Cultural Experiences:</strong>
+                                        <ul>
+                                            <li>Attend a traditional tea ceremony in Kyoto, where you’ll learn about the ceremonial preparation of matcha, which is grown in shade-covered tea gardens to enhance its flavor and reduce the need for chemical inputs.</li>
+                                            <li>Explore historic temples and shrines that practice sustainability through preservation efforts and by educating visitors on the importance of maintaining cultural heritage without causing environmental impact.</li>
+                                            <li>Participate in a guided meditation session at a Zen monastery, experiencing the spiritual side of Japan while learning about Buddhist approaches to sustainability and mindfulness in consumption.</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>Volunteer Opportunities:</strong> Engage in beach clean-up activities or forest conservation projects, which are often organized by local NGOs. These activities not only contribute to environmental protection but also offer a chance to interact with local communities and understand their relationship with nature.</li>
+                                    <li><strong>Additional Tips:</strong> Pack light to reduce carbon emissions on flights, use digital tickets and receipts to minimize paper waste, and carry a reusable water bottle to avoid single-use plastics during your travels.</li>
+                                </ul>
+                                <p>This travel plan prioritizes sustainability and cultural immersion, offering you a profoundly meaningful journey through Japan. Let me know if there's anything specific you’d like to add or modify!</p>
+                            </div>
+                        `;
+                        chatArea.appendChild(aiMessage);
+                        chatArea.scrollTop = chatArea.scrollHeight; // Auto-scroll
+                    }, 1000);
+                }
             }
-        }
+    
+            // Attach send message function to button click event
+            document.querySelector('.send-btn').onclick = sendMessage;
+        };
     </script>
+    <a href="aipage.html" class="ai-circle">AI</a>
+    
 
 </body>
 </html>
